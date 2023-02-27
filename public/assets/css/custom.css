@@ -1,0 +1,257 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.table thead{
+    background-color: #004660;
+}
+
+.table thead th{
+    color: white !important;
+}
+
+.table tfoot tr td{
+    color: white !important;
+    background-color: #004660;
+}
+
+.clickableCursor{
+    cursor: pointer;
+}
+
+.display-none{
+    display: none;
+}
+
+.recommend{
+    color:#f0b144 !important;
+}
+
+.not-recommend{
+    color: red !important;
+}
+
+.user-border-green{
+    border: 1px solid green !important;
+}
+
+.user-border-red{
+    border: 1px solid red !important;
+}
+
+.pointer-none{
+    pointer-events: none;
+}
+
+.pointer-disabled{
+    pointer-events: none;
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+/*jetstream team header css*/
+.custom-team-class >* .flex {
+    display: flex;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.custom-team-class >* .w-5 {
+    width: 1.25rem;
+}
+
+.custom-team-class >* .text-gray-700 {
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.custom-team-class >* .text-green-400 {
+    --tw-text-opacity: 1;
+    color: rgba(52, 211, 153, var(--tw-text-opacity));
+}
+
+.pl-4, .px-4 {
+    padding-left: 1.5rem!important;
+}
+.pr-4, .px-4 {
+    padding-right: 1.5rem!important;
+}
+.pb-2, .py-2 {
+    padding-bottom: .5rem!important;
+}
+.pt-2, .py-2 {
+    padding-top: .5rem!important;
+}
+.items-center {
+    align-items: center;
+}
+
+/* Datatable rtl css */
+body.rtl .dataTables_filter {
+    float: left !important; 
+}
+
+body.rtl .dataTables_length {
+    float: right !important; 
+}
+
+body.rtl .dataTables_paginate {
+    float: left !important; 
+    direction: ltr;
+}
+
+body.rtl .dataTables_info {
+    float: right !important; 
+}
+
+body.rtl .badge.pull-right {
+    margin-left: 3px !important; 
+}
+
+.not-expired{
+    background-color: #ebf5eb !important;
+}
+
+.expired{
+    background-color: #ebebeb !important;
+    opacity: 0.7;
+}
+
+.fc-today-button{
+    text-transform:capitalize !important;
+    background: #f8f9fa !important;
+    color: #212529 !important;
+    border: 1px solid !important;
+    border-color: lightgray !important;
+    font-weight: 600 !important;
+}
+
+fieldset.title {
+    border-top: 1px solid #aaa;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: block;
+    text-align: center;
+}
+
+fieldset.title legend {
+    padding: 5px 10px;
+}
+
+.error{
+    color: red;
+}
+
+/******************************Start PDF CSS****************************/
+.left{
+    float: left !important;
+}
+
+.right{
+    float: right !important;
+}
+
+@page {
+    header: page-header;
+    footer: page-footer;
+}
+
+table.breakAfter { 
+    page-break-inside:avoid; 
+    page-break-after:auto; 
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.border-left {
+    border-left: 1px solid lightgray;
+}
+
+.border-right {
+    border-right: 1px solid lightgray;
+}
+
+table.table-padding td {
+    padding: 5px;
+}
+
+table.table-padding thead td {
+    color: white !important;
+    background-color: #004660;
+}
+.btn-success{
+    background-color: #28a745 !important;
+}
+.btn-warning{
+    color: white !important;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.bg-warning{
+    background-color: #f0b144 !important;
+}
+
+/******************************End PDF CSS******************************/
+
+.active_chat{
+    background-color: lightgray !important;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.color-white{
+    color: white !important;
+}
+
+.text-primary{
+    color: #5a5278 !important;
+}
+
+/* .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-gray-700 {
+    --tw-text-opacity: 1;
+    color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.pl-4, .px-4 {
+    padding-left: 1.5rem!important;
+}
+.pr-4, .px-4 {
+    padding-right: 1.5rem!important;
+}
+.pb-2, .py-2 {
+    padding-bottom: .5rem!important;
+}
+.pt-2, .py-2 {
+    padding-top: .5rem!important;
+}
+.items-center {
+    align-items: center;
+}
+.flex {
+    display: flex;
+} */
+
