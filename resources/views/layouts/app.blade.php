@@ -77,8 +77,7 @@
         <script src="{{ asset('assets/js/sweetalert/sweetalert-dev.min.js') }}"></script>
 
         <!-- Chat -->
-        <script src="{{ asset('assets/js/chat/pusher.min.js') }}"></script>
-        <script src="{{ asset('assets/js/chat/chat.js') }}"></script>
+        <script src="{{ asset('assets/js/core.js') }}"></script>
         
         <!-- Scripts Dynamic-->
         @if (trim($__env->yieldContent('page-script')))
@@ -86,10 +85,9 @@
         @endif
 
         <!-- Livewire js -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+       {{--  <script src="{{ mix('js/app.js') }}" defer></script> --}}
         @stack('after-scripts')
         @stack('modals')
-        @livewireScripts
 
        {{--  @stack('modals')
         @livewireScripts --}}
