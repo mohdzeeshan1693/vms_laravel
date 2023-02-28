@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\User;
-use App\Models\Vehicle;
+use App\Models\Vehicles\Vehicle;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\EloquentDataTable;
@@ -24,8 +24,9 @@ class VehicleDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'vehicle.action')
-            ->setRowId('id');
+            ->addColumn('action', function($query){
+                return '<a href=""><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
+            })->rawColumns(['action']);
     }
 
     /**
@@ -34,9 +35,9 @@ class VehicleDataTable extends DataTable
      * @param \App\Models\Vehicle $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model): QueryBuilder
+    public function query(Vehicle $model): QueryBuilder
     {
-        return $model->select('*');
+        return $model->select('*')->with(['brands']);
     }
 
     /**
@@ -62,16 +63,16 @@ class VehicleDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            'id'=>['title' => 'S/NO'],
-            'name'=>['title' => 'F/No'],
-            'name'=>['title' => 'Brand'],
-            'name'=>['title' => 'P/No'],
-            'name'=>['title' => 'Chassis NO'],
-            'name'=>['title' => 'Model'],
-            'name'=>['title' => 'Type'],
-            'name'=>['title' => 'Machine'],
-            'name'=>['title' => 'Location'],
-            'name'=>['title' => 'Status'],
+            'serial_no'=>['title' => 'S/NO'],
+            'brand'=>new \Yajra\DataTables\Html\Column(['title' => 'BRAND', 'data' => 'brands.name_en', 'name' => 'brands.name_en', 'orderable' => false ]),
+            'plate_no_en'=>['title' => 'P.No/EN'],
+            'plate_no_ar'=>['title' => 'P.No/AR'],
+            'chassis_number'=>['title' => 'Chassis NO'],
+            'model'=>['title' => 'Model'],
+            'machine_type'=>['title' => 'Type'],
+            'vehicle_type'=>['title' => 'Machine'],
+            'project'=>['title' => 'Project'],
+            'working_status'=>['title' => 'Status'],
             'action'=> ['title' => 'Action', 'orderable' => false, 'searchable' => false],
         ];
     }
