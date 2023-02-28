@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Vehicle\vehicleController;
+use App\Http\Controllers\Vehicle\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +24,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::resource('vehicle',vehicleController::class);
 });
