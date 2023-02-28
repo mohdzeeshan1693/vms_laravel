@@ -37,7 +37,7 @@ class VehicleDataTable extends DataTable
      */
     public function query(Vehicle $model): QueryBuilder
     {
-        return $model->select('*')->with(['brands']);
+        return $model->select('*')->with(['brands','vehicle_types','secondary_types','projects']);
     }
 
     /**
@@ -64,15 +64,15 @@ class VehicleDataTable extends DataTable
     {
         return [
             'serial_no'=>['title' => 'S/NO'],
-            'brand'=>new \Yajra\DataTables\Html\Column(['title' => 'BRAND', 'data' => 'brands.name_en', 'name' => 'brands.name_en', 'orderable' => false ]),
+            'brand'=> new \Yajra\DataTables\Html\Column(['title' => 'BRAND', 'data' => 'brands.name_en', 'name' => 'brands.name_en', 'orderable' => false ]),
             'plate_no_en'=>['title' => 'P.No/EN'],
             'plate_no_ar'=>['title' => 'P.No/AR'],
             'chassis_number'=>['title' => 'Chassis NO'],
             'model'=>['title' => 'Model'],
-            'machine_type'=>['title' => 'Type'],
-            'vehicle_type'=>['title' => 'Machine'],
-            'project'=>['title' => 'Project'],
-            'working_status'=>['title' => 'Status'],
+            'vehicle_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE', 'data' => 'vehicle_types.name_en', 'name' => 'vehicle_types.name_en', 'orderable' => false ]),
+            'secondary_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE 1', 'data' => 'secondary_types.name_en', 'name' => 'secondary_types.name_en', 'orderable' => false ]),
+            'project_id'=> new \Yajra\DataTables\Html\Column(['title' => 'PROJECT', 'data' => 'projects.name_en', 'name' => 'projects.name_en', 'orderable' => false ]),
+            'working_status_id'=>['title' => 'Status'],
             'action'=> ['title' => 'Action', 'orderable' => false, 'searchable' => false],
         ];
     }

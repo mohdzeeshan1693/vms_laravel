@@ -22,10 +22,10 @@ return new class extends Migration
             $table->integer('status')->nullable();
             $table->bigInteger('brand_id')->unsigned()->nullable();
             $table->string('model')->nullable();
-            $table->integer('machine_type')->nullable();
-            $table->integer('vehicle_type')->nullable();
+            $table->bigInteger('vehicle_type_id')->unsigned()->nullable();
+            $table->integer('secondary_type_id')->nullable();
             $table->integer('year')->nullable();
-            $table->integer('project')->nullable();
+            $table->bigInteger('project_id')->unsigned()->nullable();
             $table->string('value')->nullable();
             $table->integer('owner')->nullable();
             $table->string('owner_id')->nullable();
@@ -34,14 +34,16 @@ return new class extends Migration
             $table->string('file_no')->nullable();
             $table->integer('driver_file_no')->nullable();
             $table->longText('notes')->nullable();
-            $table->integer('working_status')->nullable();
-            $table->integer('meter_type')->nullable();
+            $table->integer('working_status_id')->nullable();
+            $table->integer('meter_type_id')->nullable();
             $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->bigInteger('created_by')->unsigned()->nullable();
             $table->timestamps();
             
             //foreign keys
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('vehicle_type_id')->references('id')->on('vehicle_types')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('project_id')->references('id')->on('projects')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('updated_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
         });
