@@ -25,7 +25,7 @@ class VehicleDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                return '<a href=""><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
+                return '<a href="'.route('vehicle.edit', $query->id).'"><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
             })->rawColumns(['action']);
     }
 

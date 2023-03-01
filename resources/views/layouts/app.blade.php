@@ -20,7 +20,8 @@
         <link rel="stylesheet" href="{{ asset('assets/css/sweetalert/sweetalert.min.css') }}">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        @vite(['resources/js/app.js'])
 
         <!-- Styles -->
         {{--  @livewireStyles --}}

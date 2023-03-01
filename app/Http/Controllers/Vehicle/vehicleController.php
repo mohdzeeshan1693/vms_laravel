@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Vehicle;
 
 use Illuminate\Http\Request;
+use App\Models\Vehicles\Brand;
+use App\Models\Vehicles\Project;
+use App\Models\Vehicles\Vehicle;
 use App\DataTables\VehicleDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Vehicles\VehicleType;
+use App\Models\Vehicles\SecondaryType;
 
 class vehicleController extends Controller
 {
@@ -25,7 +30,16 @@ class vehicleController extends Controller
      */
     public function create()
     {
-        return view('vehicles.information.create');
+        $brands = Brand::orderBy('name_en', 'ASC')->get();
+        $types = VehicleType::orderBy('name_en', 'ASC')->get();
+        $secondary_types = SecondaryType::orderBy('name_en', 'ASC')->get();
+        $projects = Project::get();
+        return view('vehicles.information.create')->with([
+            'brands'=>$brands,
+            'types'=>$types,
+            'secondary_types'=>$secondary_types,
+            'projects'=>$projects
+        ]);
     }
 
     /**
@@ -58,7 +72,18 @@ class vehicleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vehicles_details = Vehicle::findOrFail($id);
+        $brands = Brand::orderBy('name_en', 'ASC')->get();
+        $types = VehicleType::orderBy('name_en', 'ASC')->get();
+        $secondary_types = SecondaryType::orderBy('name_en', 'ASC')->get();
+        $projects = Project::get();
+        return view('vehicles.information.edit')->with([
+            'vehicles_details'=>$vehicles_details,
+            'brands'=>$brands,
+            'types'=>$types,
+            'secondary_types'=>$secondary_types,
+            'projects'=>$projects
+        ]);
     }
 
     /**
@@ -70,7 +95,7 @@ class vehicleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request;
     }
 
     /**
