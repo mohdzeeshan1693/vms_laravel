@@ -6,6 +6,7 @@ use App\Models\Vehicles\Brand;
 use App\Models\Vehicles\Project;
 use App\Models\Vehicles\VehicleType;
 use App\Models\Vehicles\SecondaryType;
+use App\Models\Vehicles\WorkingStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -57,5 +58,10 @@ class Vehicle extends Model
     public function projects()
     {
         return $this->belongsTo(Project::class, 'project_id');
+    }
+
+    public function working_statuses()
+    {
+        return $this->belongsTo(WorkingStatus::class, 'working_status_id');
     }
 }
