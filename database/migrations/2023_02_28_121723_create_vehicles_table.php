@@ -35,7 +35,7 @@ return new class extends Migration
             $table->integer('driver_file_no')->nullable();
             $table->longText('notes')->nullable();
             $table->integer('working_status_id')->nullable();
-            $table->integer('meter_type_id')->nullable();
+            $table->bigInteger('meter_type_id')->unsigned()->nullable();
             $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->bigInteger('created_by')->unsigned()->nullable();
             $table->timestamps();
@@ -45,6 +45,7 @@ return new class extends Migration
             $table->foreign('vehicle_type_id')->references('id')->on('vehicle_types')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('project_id')->references('id')->on('projects')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('color_id')->references('id')->on('colors')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('meter_type_id')->references('id')->on('meter_types')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('updated_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
         });

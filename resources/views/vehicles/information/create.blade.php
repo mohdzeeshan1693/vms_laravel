@@ -94,7 +94,9 @@
                                         <label class="form-label">Meter Type</label>
                                         <select class="form-control" name="meter_type" width="100%">
                                             <option value="">-- Please Choose --</option>
-                                            <option value="">KM</option>
+                                            @foreach ($meter_types as $meter_type)
+                                                <option value="{{ $meter_type->id }}">{{ $meter_type->name_en }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

@@ -7,6 +7,7 @@ use App\Models\Vehicles\Brand;
 use App\Models\Vehicles\Color;
 use App\Models\Vehicles\Project;
 use App\Models\Vehicles\Vehicle;
+use App\Models\Vehicles\MeterType;
 use App\DataTables\VehicleDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Vehicles\VehicleType;
@@ -36,12 +37,14 @@ class vehicleController extends Controller
         $secondary_types = SecondaryType::orderBy('name_en', 'ASC')->get();
         $projects = Project::get();
         $colors = Color::orderBy('name_en', 'ASC')->get();
+        $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.create')->with([
             'brands'=>$brands,
             'types'=>$types,
             'secondary_types'=>$secondary_types,
             'projects'=>$projects,
-            'colors'=>$colors
+            'colors'=>$colors,
+            'meter_types'=>$meter_types
         ]);
     }
 
@@ -81,13 +84,15 @@ class vehicleController extends Controller
         $secondary_types = SecondaryType::orderBy('name_en', 'ASC')->get();
         $projects = Project::get();
         $colors = Color::orderBy('name_en', 'ASC')->get();
+        $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.edit')->with([
             'vehicles_details'=>$vehicles_details,
             'brands'=>$brands,
             'types'=>$types,
             'secondary_types'=>$secondary_types,
             'projects'=>$projects,
-            'colors'=>$colors
+            'colors'=>$colors,
+            'meter_types'=>$meter_types
         ]);
     }
 

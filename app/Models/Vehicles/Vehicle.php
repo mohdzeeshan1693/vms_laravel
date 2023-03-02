@@ -70,4 +70,9 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Color::class, 'color_id');
     }
+
+    public function meter_types()
+    {
+        return $this->belongsTo(MeterType::class, 'meter_type_id');
+    }
 }
