@@ -27,9 +27,9 @@ return new class extends Migration
             $table->integer('year')->nullable();
             $table->bigInteger('project_id')->unsigned()->nullable();
             $table->string('value')->nullable();
-            $table->integer('owner')->nullable();
-            $table->string('owner_id')->nullable();
-            $table->integer('color')->nullable();
+            $table->integer('owner_id')->nullable();
+            $table->string('owner_id_no')->nullable();
+            $table->bigInteger('color_id')->unsigned()->nullable();
             $table->string('aswaq_no')->nullable();
             $table->string('file_no')->nullable();
             $table->integer('driver_file_no')->nullable();
@@ -44,6 +44,7 @@ return new class extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('vehicle_type_id')->references('id')->on('vehicle_types')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('project_id')->references('id')->on('projects')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('color_id')->references('id')->on('colors')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('updated_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
         });

@@ -3,6 +3,7 @@
 namespace App\Models\Vehicles;
 
 use App\Models\Vehicles\Brand;
+use App\Models\Vehicles\Color;
 use App\Models\Vehicles\Project;
 use App\Models\Vehicles\VehicleType;
 use App\Models\Vehicles\SecondaryType;
@@ -29,7 +30,7 @@ class Vehicle extends Model
         'value',
         'owner',
         'owner_id',
-        'color',
+        'color_id',
         'aswaq_no',
         'file_no',
         'driver_file_no',
@@ -63,5 +64,10 @@ class Vehicle extends Model
     public function working_statuses()
     {
         return $this->belongsTo(WorkingStatus::class, 'working_status_id');
+    }
+
+    public function colors()
+    {
+        return $this->belongsTo(Color::class, 'color_id');
     }
 }

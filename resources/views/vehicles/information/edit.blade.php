@@ -92,7 +92,9 @@
                                         <label class="form-label">Color</label>
                                         <select class="form-control" name="color" width="100%">
                                             <option value="">-- Please Choose --</option>
-                                            <option value="">Red</option>
+                                            @foreach ($colors as $color)
+                                                <option value="{{ $color->id }}">{{ $color->name_en }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
