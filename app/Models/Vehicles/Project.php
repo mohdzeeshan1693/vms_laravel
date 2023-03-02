@@ -10,7 +10,6 @@ class Project extends Model
     use HasFactory;
     protected $table = 'projects';
     protected $fillable = [
-        'project_id',
         'name_en',
         'name_ar',
         'created_by',
