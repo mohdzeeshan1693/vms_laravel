@@ -15,6 +15,7 @@ use App\Models\Vehicles\VehicleType;
 use App\Models\Vehicles\SecondaryType;
 use App\Models\Vehicles\WorkingStatus;
 use App\Models\Vehicles\OwnershipStatus;
+use App\Http\Requests\StoreVehicleRequest;
 
 class vehicleController extends Controller
 {
@@ -63,9 +64,34 @@ class vehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreVehicleRequest $request)
     {
-        //
+        $vehicle = new Vehicle();
+        $vehicle->serial_no = $request->tender;
+        $vehicle->plate_no_en = $request->email;
+        $vehicle->plate_no_ar = $request->notes;
+        $vehicle->chassis_number = $request->user()->id;
+        $vehicle->status = $request->tender;
+        $vehicle->brand_id  = $request->email;
+        $vehicle->model = $request->notes;
+        $vehicle->vehicle_type_id  = $request->user()->id;
+        
+        $vehicle->secondary_type_id = $request->tender;
+        $vehicle->year = $request->email;
+        $vehicle->project_id = $request->notes;
+        $vehicle->value = $request->user()->id;
+        $vehicle->owner_id = $request->tender;
+        $vehicle->owner_id_no = $request->email;
+        $vehicle->owner_status_id = $request->notes;
+        $vehicle->color_id  = $request->user()->id;
+
+        $vehicle->aswaq_no = $request->tender;
+        $vehicle->file_no = $request->email;
+        $vehicle->driver_file_no = $request->notes;
+        $vehicle->notes = $request->user()->id;
+        $vehicle->working_status_id = $request->tender;
+        $vehicle->meter_type_id = $request->email;
+        $vehicle->created_by = $request->notes;
     }
 
     /**

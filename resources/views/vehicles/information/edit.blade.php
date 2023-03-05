@@ -30,6 +30,8 @@
                         <div class="demo-masked-input">
                             <!-- Basic Information -->
                             <h3 class="card-title">Update New Vehicle</h3>
+                            
+                            <!-- information -->
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -199,8 +201,35 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                            </div>
+                            </div><!-- information -->
+
+                            <!-- Photos -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Front') }}</label>
+                                        <input type="file" class="form-control" name="front" value="{{ old('front') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Back') }}</label>
+                                        <input type="file" class="form-control" name="back" value="{{ old('back') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Left') }}</label>
+                                        <input type="file" class="form-control" name="left" value="{{ old('left') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Right') }}</label>
+                                        <input type="file" class="form-control" name="right" value="{{ old('right') }}">
+                                    </div>
+                                </div>
+                            </div><!-- Photos -->
                         </div>
                     </div>
                     

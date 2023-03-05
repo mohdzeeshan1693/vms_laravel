@@ -21,35 +21,80 @@
                         <div class="demo-masked-input">
                             <!-- Basic Information -->
                             <h3 class="card-title">Add New Vehicle</h3>
+
+                            <!-- information -->
                             <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Type</label>
+                                        <select class="form-control" name="type" width="100%">
+                                            <option value="">-- Please Choose --</option>
+                                            @foreach ($types as $type)
+                                                <option value="{{ $type->id }}" {{ old('type') == $type->id ? 'selected' : ''}}>{{ $type->name_en }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if($errors->has('type'))
+                                            <span class="text-danger">{{ $errors->first('type') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Secondary Type</label>
+                                        <select class="form-control" name="secondary_type" width="100%">
+                                            <option value="">-- Please Choose --</option>
+                                            @foreach ($secondary_types as $secondary_type)
+                                                <option value="{{ $secondary_type->id }}" {{ old('secondary_type') == $secondary_type->id ? 'selected' : ''}}>{{ $secondary_type->name_en }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if($errors->has('secondary_type'))
+                                            <span class="text-danger">{{ $errors->first('secondary_type') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Serial Number</label>
                                         <input type="text" class="form-control" name="serial_no" value="{{ old('serial_no') }}" placeholder="{{ __('Serial Number') }}">
+                                        @if($errors->has('serial_no'))
+                                            <span class="text-danger">{{ $errors->first('serial_no') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Plate Number (English)</label>
                                         <input type="text" class="form-control" name="plate_no_en" value="{{ old('plate_no_en') }}" placeholder="{{ __('Plate Number English') }}">
+                                        @if($errors->has('plate_no_en'))
+                                            <span class="text-danger">{{ $errors->first('plate_no_en') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Plate Number (Arabic)</label>
                                         <input type="text" class="form-control" name="plate_no_ar" value="{{ old('plate_no_ar') }}" placeholder="{{ __('Plate Number Arabic') }}">
+                                        @if($errors->has('plate_no_ar'))
+                                            <span class="text-danger">{{ $errors->first('plate_no_ar') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Chassis Number</label>
                                         <input type="text" class="form-control" name="chassis_no" value="{{ old('chassis_no') }}" placeholder="{{ __('Chassis Number') }}">
+                                        @if($errors->has('chassis_no'))
+                                            <span class="text-danger">{{ $errors->first('chassis_no') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Model</label>
                                         <input type="text" class="form-control" name="model" value="{{ old('model') }}" placeholder="{{ __('Model') }}">
+                                        @if($errors->has('model'))
+                                            <span class="text-danger">{{ $errors->first('model') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -65,6 +110,9 @@
                                                 <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                         </select>
+                                        @if($errors->has('year'))
+                                            <span class="text-danger">{{ $errors->first('year') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -76,6 +124,9 @@
                                                 <option value="{{ $brand->id }}">{{ $brand->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('brand'))
+                                            <span class="text-danger">{{ $errors->first('brand') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -87,6 +138,9 @@
                                                 <option value="{{ $color->id }}">{{ $color->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('color'))
+                                            <span class="text-danger">{{ $errors->first('color') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -98,34 +152,19 @@
                                                 <option value="{{ $meter_type->id }}">{{ $meter_type->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('meter_type'))
+                                            <span class="text-danger">{{ $errors->first('meter_type') }}</span>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="form-label">Type</label>
-                                        <select class="form-control" name="type" width="100%">
-                                            <option value="">-- Please Choose --</option>
-                                            @foreach ($types as $type)
-                                                <option value="{{ $type->id }}">{{ $type->name_en }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="form-label">Secondary Type</label>
-                                        <select class="form-control" name="secondary_type" width="100%">
-                                            <option value="">-- Please Choose --</option>
-                                            @foreach ($secondary_types as $secondary_type)
-                                                <option value="{{ $secondary_type->id }}">{{ $secondary_type->name_en }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Value of Equipment</label>
                                         <input type="text" class="form-control" name="value" value="{{ old('value') }}" placeholder="{{ __('Value') }}">
+                                        @if($errors->has('value'))
+                                            <span class="text-danger">{{ $errors->first('value') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -137,6 +176,9 @@
                                                 <option value="{{ $project->id }}">{{ $project->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('project'))
+                                            <span class="text-danger">{{ $errors->first('project') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -148,12 +190,18 @@
                                                 <option value="{{ $ownership->id }}">{{ $ownership->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('ownership'))
+                                            <span class="text-danger">{{ $errors->first('ownership') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Owner ID Number</label>
                                         <input type="text" class="form-control" name="owner_id" value="{{ old('owner_id') }}" placeholder="{{ __('Owner ID Number') }}">
+                                        @if($errors->has('owner_id'))
+                                            <span class="text-danger">{{ $errors->first('owner_id') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -165,18 +213,27 @@
                                                 <option value="{{ $ownerships_status->id }}">{{ $ownerships_status->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('ownership_status'))
+                                            <span class="text-danger">{{ $errors->first('ownership_status') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Aswaq Number</label>
                                         <input type="text" class="form-control" name="aswaq_no" value="{{ old('aswaq_no') }}" placeholder="{{ __('Aswaq Number') }}">
+                                        @if($errors->has('aswaq_no'))
+                                            <span class="text-danger">{{ $errors->first('aswaq_no') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">File Number</label>
                                         <input type="text" class="form-control" name="file_no" value="{{ old('file_no') }}" placeholder="{{ __('File Number') }}">
+                                        @if($errors->has('file_no'))
+                                            <span class="text-danger">{{ $errors->first('file_no') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -188,10 +245,40 @@
                                                 <option value="{{ $working_statuse->id }}">{{ $working_statuse->name_en }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors->has('working_status'))
+                                            <span class="text-danger">{{ $errors->first('working_status') }}</span>
+                                        @endif
                                     </div>
                                 </div>
-                                
-                            </div>
+                            </div><!-- information -->
+
+                             <!-- Photos -->
+                             <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Front') }}</label>
+                                        <input type="file" class="form-control" name="front" value="{{ old('front') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Back') }}</label>
+                                        <input type="file" class="form-control" name="back" value="{{ old('back') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Left') }}</label>
+                                        <input type="file" class="form-control" name="left" value="{{ old('left') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">{{ __('Photo - Right') }}</label>
+                                        <input type="file" class="form-control" name="right" value="{{ old('right') }}">
+                                    </div>
+                                </div>
+                            </div><!-- Photos -->
                         </div>
                     </div>
 
