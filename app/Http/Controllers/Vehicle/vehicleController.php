@@ -67,31 +67,30 @@ class vehicleController extends Controller
     public function store(StoreVehicleRequest $request)
     {
         $vehicle = new Vehicle();
-        $vehicle->serial_no = $request->tender;
-        $vehicle->plate_no_en = $request->email;
-        $vehicle->plate_no_ar = $request->notes;
-        $vehicle->chassis_number = $request->user()->id;
-        $vehicle->status = $request->tender;
-        $vehicle->brand_id  = $request->email;
-        $vehicle->model = $request->notes;
-        $vehicle->vehicle_type_id  = $request->user()->id;
-        
-        $vehicle->secondary_type_id = $request->tender;
-        $vehicle->year = $request->email;
-        $vehicle->project_id = $request->notes;
-        $vehicle->value = $request->user()->id;
-        $vehicle->owner_id = $request->tender;
-        $vehicle->owner_id_no = $request->email;
-        $vehicle->owner_status_id = $request->notes;
-        $vehicle->color_id  = $request->user()->id;
+        $vehicle->serial_no = $request->serial_no;
+        $vehicle->plate_no_en = $request->plate_no_en;
+        $vehicle->plate_no_ar = $request->plate_no_ar;
+        $vehicle->chassis_number = $request->chassis_no;
+        $vehicle->brand_id  = $request->brand;
+        $vehicle->model = $request->model;
+        $vehicle->vehicle_type_id  = $request->type;
+        $vehicle->secondary_type_id = $request->secondary_type;
+        $vehicle->year = $request->year;
+        $vehicle->project_id = $request->project;
+        $vehicle->value = $request->value;
+        $vehicle->owner_id = $request->ownership;
+        $vehicle->owner_id_no = $request->owner_id;
+        $vehicle->owner_status_id = $request->ownership_status;
+        $vehicle->color_id  = $request->color;
+        $vehicle->aswaq_no = $request->aswaq_no;
+        $vehicle->file_no = $request->file_no;
 
-        $vehicle->aswaq_no = $request->tender;
-        $vehicle->file_no = $request->email;
         $vehicle->driver_file_no = $request->notes;
         $vehicle->notes = $request->user()->id;
-        $vehicle->working_status_id = $request->tender;
-        $vehicle->meter_type_id = $request->email;
-        $vehicle->created_by = $request->notes;
+        
+        $vehicle->working_status_id = $request->working_status;
+        $vehicle->meter_type_id = $request->meter_type;
+        $vehicle->created_by = $request->user()->id;
     }
 
     /**
