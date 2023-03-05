@@ -13,6 +13,7 @@ use App\DataTables\VehicleDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Vehicles\VehicleType;
 use App\Models\Vehicles\SecondaryType;
+use App\Models\Vehicles\WorkingStatus;
 use App\Models\Vehicles\OwnershipStatus;
 
 class vehicleController extends Controller
@@ -42,6 +43,7 @@ class vehicleController extends Controller
         $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
         $ownerships = Ownership::orderBy('name_en', 'ASC')->get();
         $ownerships_statuses = OwnershipStatus::orderBy('name_en', 'ASC')->get();
+        $working_statuses = WorkingStatus::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.create')->with([
             'brands'=>$brands,
             'types'=>$types,
@@ -50,7 +52,8 @@ class vehicleController extends Controller
             'colors'=>$colors,
             'meter_types'=>$meter_types,
             'ownerships'=>$ownerships,
-            'ownerships_statuses'=>$ownerships_statuses
+            'ownerships_statuses'=>$ownerships_statuses,
+            'working_statuses'=>$working_statuses
         ]);
     }
 
@@ -93,6 +96,7 @@ class vehicleController extends Controller
         $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
         $ownerships = Ownership::orderBy('name_en', 'ASC')->get();
         $ownerships_statuses = OwnershipStatus::orderBy('name_en', 'ASC')->get();
+        $working_statuses = WorkingStatus::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.edit')->with([
             'vehicles_details'=>$vehicles_details,
             'brands'=>$brands,
@@ -102,7 +106,8 @@ class vehicleController extends Controller
             'colors'=>$colors,
             'meter_types'=>$meter_types,
             'ownerships'=>$ownerships,
-            'ownerships_statuses'=>$ownerships_statuses
+            'ownerships_statuses'=>$ownerships_statuses,
+            'working_statuses'=>$working_statuses
         ]);
     }
 

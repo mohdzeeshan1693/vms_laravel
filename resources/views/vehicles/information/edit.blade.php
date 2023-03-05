@@ -193,7 +193,9 @@
                                         <label class="form-label">Working Status</label>
                                         <select class="form-control" name="working_status" width="100%">
                                             <option value="">-- Please Choose --</option>
-                                            <option value="">Breakdown</option>
+                                            @foreach ($working_statuses as $working_statuse)
+                                                <option value="{{ $working_statuse->id }}">{{ $working_statuse->name_en }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
