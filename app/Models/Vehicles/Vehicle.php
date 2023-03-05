@@ -28,8 +28,8 @@ class Vehicle extends Model
         'year',
         'project_id',
         'value',
-        'owner',
         'owner_id',
+        'owner_id_no',
         'color_id',
         'aswaq_no',
         'file_no',
@@ -74,5 +74,10 @@ class Vehicle extends Model
     public function meter_types()
     {
         return $this->belongsTo(MeterType::class, 'meter_type_id');
+    }
+
+    public function ownerships()
+    {
+        return $this->belongsTo(Ownership::class, 'owner_id');
     }
 }

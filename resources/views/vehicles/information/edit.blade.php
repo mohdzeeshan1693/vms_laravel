@@ -153,7 +153,9 @@
                                         <label class="form-label">Ownership</label>
                                         <select class="form-control" name="ownership" width="100%">
                                             <option value="">-- Please Choose --</option>
-                                            <option value="">Abullah Ibrahim Alsayegh Co</option>
+                                            @foreach ($ownerships as $ownership)
+                                                <option value="{{ $ownership->id }}">{{ $ownership->name_en }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

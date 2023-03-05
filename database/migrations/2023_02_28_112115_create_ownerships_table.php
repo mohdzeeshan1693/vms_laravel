@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meter_types', function (Blueprint $table) {
+        Schema::create('ownerships', function (Blueprint $table) {
             $table->id();
             $table->string('name_en')->nullable();
             $table->string('name_ar')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meter_types');
+        Schema::dropIfExists('ownerships');
     }
 };

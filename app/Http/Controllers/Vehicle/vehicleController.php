@@ -8,6 +8,7 @@ use App\Models\Vehicles\Color;
 use App\Models\Vehicles\Project;
 use App\Models\Vehicles\Vehicle;
 use App\Models\Vehicles\MeterType;
+use App\Models\Vehicles\Ownership;
 use App\DataTables\VehicleDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Vehicles\VehicleType;
@@ -38,13 +39,15 @@ class vehicleController extends Controller
         $projects = Project::get();
         $colors = Color::orderBy('name_en', 'ASC')->get();
         $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
+        $ownerships = Ownership::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.create')->with([
             'brands'=>$brands,
             'types'=>$types,
             'secondary_types'=>$secondary_types,
             'projects'=>$projects,
             'colors'=>$colors,
-            'meter_types'=>$meter_types
+            'meter_types'=>$meter_types,
+            'ownerships'=>$ownerships
         ]);
     }
 
@@ -85,6 +88,7 @@ class vehicleController extends Controller
         $projects = Project::get();
         $colors = Color::orderBy('name_en', 'ASC')->get();
         $meter_types = MeterType::orderBy('name_en', 'ASC')->get();
+        $ownerships = Ownership::orderBy('name_en', 'ASC')->get();
         return view('vehicles.information.edit')->with([
             'vehicles_details'=>$vehicles_details,
             'brands'=>$brands,
@@ -92,7 +96,8 @@ class vehicleController extends Controller
             'secondary_types'=>$secondary_types,
             'projects'=>$projects,
             'colors'=>$colors,
-            'meter_types'=>$meter_types
+            'meter_types'=>$meter_types,
+            'ownerships'=>$ownerships
         ]);
     }
 
