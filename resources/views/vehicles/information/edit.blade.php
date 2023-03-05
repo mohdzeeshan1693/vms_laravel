@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <div class="demo-masked-input">
                             <!-- Basic Information -->
-                            <h3 class="card-title">Add New Vehicle</h3>
+                            <h3 class="card-title">Update New Vehicle</h3>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
