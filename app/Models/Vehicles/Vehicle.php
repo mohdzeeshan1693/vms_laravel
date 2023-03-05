@@ -30,6 +30,7 @@ class Vehicle extends Model
         'value',
         'owner_id',
         'owner_id_no',
+        'owner_status_id',
         'color_id',
         'aswaq_no',
         'file_no',
@@ -48,7 +49,7 @@ class Vehicle extends Model
 
     public function vehicle_types()
     {
-        return $this->belongsTo(VehicleType::class, 'vehicle_type_id');
+        return $this->belongsTo(VehicleType::class, 'owner_status_id');
     }
 
     public function secondary_types()
@@ -79,5 +80,10 @@ class Vehicle extends Model
     public function ownerships()
     {
         return $this->belongsTo(Ownership::class, 'owner_id');
+    }
+
+    public function ownership_statuses()
+    {
+        return $this->belongsTo(OwnershipStatus::class, 'owner_id');
     }
 }

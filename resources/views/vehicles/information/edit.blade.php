@@ -170,7 +170,9 @@
                                         <label class="form-label">Ownership Status</label>
                                         <select class="form-control" name="ownership_status" width="100%">
                                             <option value="">-- Please Choose --</option>
-                                            <option value="">Rent</option>
+                                            @foreach ($ownerships_statuses as $ownerships_status)
+                                                <option value="{{ $ownerships_status->id }}">{{ $ownerships_status->name_en }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

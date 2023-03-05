@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('value')->nullable();
             $table->integer('owner_id')->nullable();
             $table->string('owner_id_no')->nullable();
+            $table->bigInteger('owner_status_id')->unsigned()->nullable();
             $table->bigInteger('color_id')->unsigned()->nullable();
             $table->string('aswaq_no')->nullable();
             $table->string('file_no')->nullable();
@@ -46,6 +47,7 @@ return new class extends Migration
             $table->foreign('project_id')->references('id')->on('projects')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('color_id')->references('id')->on('colors')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('meter_type_id')->references('id')->on('meter_types')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('owner_status_id')->references('id')->on('ownership_statuses')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('updated_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
         });
