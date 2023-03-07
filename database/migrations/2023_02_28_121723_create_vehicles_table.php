@@ -37,6 +37,13 @@ return new class extends Migration
             $table->longText('notes')->nullable();
             $table->integer('working_status_id')->nullable();
             $table->bigInteger('meter_type_id')->unsigned()->nullable();
+            
+            // Photos
+            $table->string('front_photo_path')->nullable();
+            $table->string('back_photo_path')->nullable();
+            $table->string('left_photo_path')->nullable();
+            $table->string('right_photo_path')->nullable();
+
             $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->bigInteger('created_by')->unsigned()->nullable();
             $table->timestamps();

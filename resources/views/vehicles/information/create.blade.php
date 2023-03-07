@@ -107,7 +107,7 @@
                                         <select class="form-control" name="year" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @for ($i=$firstYear; $i<= $lastYear; $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option value="{{ $i }}" {{ old('year') == $i ? 'selected' : '' }}>{{ $i }}</option>
                                             @endfor
                                         </select>
                                         @if($errors->has('year'))
@@ -121,7 +121,7 @@
                                         <select class="form-control" name="brand" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}">{{ $brand->name_en }}</option>
+                                                <option value="{{ $brand->id }}" {{ old('brand') == $brand->id ? 'selected' : '' }}>{{ $brand->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('brand'))
@@ -135,7 +135,7 @@
                                         <select class="form-control" name="color" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($colors as $color)
-                                                <option value="{{ $color->id }}">{{ $color->name_en }}</option>
+                                                <option value="{{ $color->id }}" {{ old('color') == $color->id ? 'selected' : '' }}>{{ $color->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('color'))
@@ -149,7 +149,7 @@
                                         <select class="form-control" name="meter_type" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($meter_types as $meter_type)
-                                                <option value="{{ $meter_type->id }}">{{ $meter_type->name_en }}</option>
+                                                <option value="{{ $meter_type->id }}" {{ old('meter_type') == $meter_type->id ? 'selected' : '' }}>{{ $meter_type->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('meter_type'))
@@ -173,7 +173,7 @@
                                         <select class="form-control" name="project" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($projects as $project)
-                                                <option value="{{ $project->id }}">{{ $project->name_en }}</option>
+                                                <option value="{{ $project->id }}" {{ old('project') == $project->id ? 'selected' : '' }}>{{ $project->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('project'))
@@ -187,7 +187,7 @@
                                         <select class="form-control" name="ownership" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($ownerships as $ownership)
-                                                <option value="{{ $ownership->id }}">{{ $ownership->name_en }}</option>
+                                                <option value="{{ $ownership->id }}" {{ old('ownership') == $ownership->id ? 'selected' : '' }}>{{ $ownership->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('ownership'))
@@ -210,7 +210,7 @@
                                         <select class="form-control" name="ownership_status" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($ownerships_statuses as $ownerships_status)
-                                                <option value="{{ $ownerships_status->id }}">{{ $ownerships_status->name_en }}</option>
+                                                <option value="{{ $ownerships_status->id }}" {{ old('ownership_status') == $ownerships_status->id ? 'selected' : '' }}>{{ $ownerships_status->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('ownership_status'))
@@ -242,7 +242,7 @@
                                         <select class="form-control" name="working_status" width="100%">
                                             <option value="">-- Please Choose --</option>
                                             @foreach ($working_statuses as $working_statuse)
-                                                <option value="{{ $working_statuse->id }}">{{ $working_statuse->name_en }}</option>
+                                                <option value="{{ $working_statuse->id }}" {{ old('working_status') == $working_statuse->id ? 'selected' : '' }}>{{ $working_statuse->name_en }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('working_status'))
@@ -250,7 +250,19 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div><!-- information -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Notes</label>
+                                        <textarea class="form-control" name="notes" placeholder="{{ __('Notes') }}">{{ old('file_no') }}</textarea>
+                                        @if($errors->has('file_no'))
+                                            <span class="text-danger">{{ $errors->first('file_no') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- information -->
 
                              <!-- Photos -->
                              <div class="row">
@@ -258,24 +270,36 @@
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Front') }}</label>
                                         <input type="file" class="form-control" name="front" value="{{ old('front') }}">
+                                        @if($errors->has('front'))
+                                            <span class="text-danger">{{ $errors->first('front') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Back') }}</label>
                                         <input type="file" class="form-control" name="back" value="{{ old('back') }}">
+                                        @if($errors->has('back'))
+                                            <span class="text-danger">{{ $errors->first('back') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Left') }}</label>
                                         <input type="file" class="form-control" name="left" value="{{ old('left') }}">
+                                        @if($errors->has('left'))
+                                            <span class="text-danger">{{ $errors->first('left') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Right') }}</label>
                                         <input type="file" class="form-control" name="right" value="{{ old('right') }}">
+                                        @if($errors->has('right'))
+                                            <span class="text-danger">{{ $errors->first('right') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div><!-- Photos -->

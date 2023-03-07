@@ -43,6 +43,11 @@ class StoreVehicleRequest extends FormRequest
             'aswaq_no' => 'required',
             'file_no' => 'required',
             'working_status' => 'required',
+
+            'front' => 'required|mimes:jpeg,jpg,png,gif|max:51200', //50MB
+            'back' => 'required|mimes:jpeg,jpg,png,gif|max:51200', //50MB
+            'left' => 'required|mimes:jpeg,jpg,png,gif|max:51200', //50MB
+            'right' => 'required|mimes:jpeg,jpg,png,gif|max:51200', //50MB
         ];
     }
 
@@ -51,6 +56,10 @@ class StoreVehicleRequest extends FormRequest
         return [
             'plate_no_en.required_if' => 'The plate number field is required for on-road vehicle.',
             'plate_no_ar.required_if' => 'The plate number field is required for on-road vehicle.',
+            'front.max' => 'The file size may not be greater than 50MB.',
+            'back.max' => 'The file size may not be greater than 50MB.',
+            'left.max' => 'The file size may not be greater than 50MB.',
+            'right.max' => 'The file size may not be greater than 50MB.',
         ];
     }
 }

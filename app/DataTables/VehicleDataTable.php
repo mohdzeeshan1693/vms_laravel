@@ -21,12 +21,21 @@ class VehicleDataTable extends DataTable
      * @param QueryBuilder $query Results from query() method.
      * @return \Yajra\DataTables\EloquentDataTable
      */
-    public function dataTable(QueryBuilder $query): EloquentDataTable
+    public function dataTable($query)
     {
-        return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
+        return datatables()
+            ->eloquent($query)
+            ->setRowClass(function ($query) {
+                return 'text-center ';
+            })->addColumn('action', function($query){
                 return '<a href="'.route('vehicle.edit', $query->id).'"><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
-            })->rawColumns(['action']);
+            })->editColumn('photo', function($query){
+                $assign_html = '';
+                $front = $query->front_photo_path;
+                $assign_html .= '<li><img src="'.$front.'" alt="Front" title="Front" class="user-border-green"></li>';
+                
+                return '<ul class="list-unstyled team-info mb-0" dir="ltr">'.$assign_html.'</ul>';
+            })->rawColumns(['action','photo']);
     }
 
     /**
@@ -72,6 +81,7 @@ class VehicleDataTable extends DataTable
             'secondary_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE 1', 'data' => 'secondary_types.name_en', 'name' => 'secondary_types.name_en', 'orderable' => false ]),
             'project_id'=> new \Yajra\DataTables\Html\Column(['title' => 'PROJECT', 'data' => 'projects.name_en', 'name' => 'projects.name_en', 'orderable' => false ]),
             'working_status_id'=> new \Yajra\DataTables\Html\Column(['title' => 'W Status', 'data' => 'working_statuses.name_en', 'name' => 'working_statuses.name_en', 'orderable' => false ]),
+            'photo'=> ['title' => __('datatable.assign'), 'orderable' => false, 'searchable' => false, 'style'=>'width:80px'],
             'action'=> ['title' => 'Action', 'orderable' => false, 'searchable' => false],
         ];
     }
