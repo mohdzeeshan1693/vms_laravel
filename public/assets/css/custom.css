@@ -230,11 +230,15 @@ table.table-padding thead td {
     width:40px;height:40px !important;
 }
 
+.veh_img_main{
+    width:230px;height:230px !important;
+}
+
 .wstatus_success{
     background-color:#dceddc;
 }
 
 .wstatus_other{
-    background-color:#f3f0f1;
+    background-color:#efe2e6;
 }
 /**********Vehicle*************/

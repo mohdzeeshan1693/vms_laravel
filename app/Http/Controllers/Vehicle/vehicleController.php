@@ -18,6 +18,7 @@ use App\Models\Vehicles\SecondaryType;
 use App\Models\Vehicles\WorkingStatus;
 use App\Models\Vehicles\OwnershipStatus;
 use App\Http\Requests\StoreVehicleRequest;
+use App\Http\Requests\UpdateVehicleRequest;
 
 class vehicleController extends Controller
 {
@@ -211,7 +212,7 @@ class vehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateVehicleRequest $request, $id)
     {
         return $request;
     }
