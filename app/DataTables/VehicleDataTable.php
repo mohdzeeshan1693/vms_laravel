@@ -26,15 +26,20 @@ class VehicleDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->setRowClass(function ($query) {
-                return 'text-center ';
+                if($query->working_status_id == 1 || $query->working_status_id == 5 ){ //working & idle
+                    return 'text-center wstatus_success';
+                }else{
+                    return 'text-center wstatus_other';
+                }
+            })->editColumn('photo', function($query){
+                return '<ul class="list-unstyled team-info mb-0">
+                            <li><a href="'.$query->front_photo_url.'" target="_blank"><img class="veh_img" src="'.$query->front_photo_url.'" alt="Front" title="Front"></a></li>
+                            <li><a href="'.$query->back_photo_url.'" target="_blank"><img class="veh_img" src="'.$query->back_photo_url.'" alt="Back" title="Back"></a></li>
+                            <li><a href="'.$query->left_photo_url.'" target="_blank"><img class="veh_img" src="'.$query->left_photo_url.'" alt="Back" title="Left"></a></li>
+                            <li><a href="'.$query->right_photo_url.'" target="_blank"><img class="veh_img" src="'.$query->right_photo_url.'" alt="Right" title="Right"></a></li>    
+                        </ul>';
             })->addColumn('action', function($query){
                 return '<a href="'.route('vehicle.edit', $query->id).'"><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
-            })->editColumn('photo', function($query){
-                $assign_html = '';
-                $front = $query->front_photo_path;
-                $assign_html .= '<li><img src="'.$front.'" alt="Front" title="Front" class="user-border-green"></li>';
-                
-                return '<ul class="list-unstyled team-info mb-0" dir="ltr">'.$assign_html.'</ul>';
             })->rawColumns(['action','photo']);
     }
 
@@ -73,15 +78,15 @@ class VehicleDataTable extends DataTable
     {
         return [
             'serial_no'=>['title' => 'S/NO'],
-            'brand'=> new \Yajra\DataTables\Html\Column(['title' => 'BRAND', 'data' => 'brands.name_en', 'name' => 'brands.name_en', 'orderable' => false ]),
+            'brand'=> new \Yajra\DataTables\Html\Column(['title' => 'BRAND', 'data' => 'brands.name_en', 'name' => 'brands.name_en']),
             'plate_no_en'=>['title' => 'P.No'],
             'chassis_number'=>['title' => 'Chassis NO'],
             'model'=>['title' => 'Model'],
-            'vehicle_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE', 'data' => 'vehicle_types.name_en', 'name' => 'vehicle_types.name_en', 'orderable' => false ]),
-            'secondary_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE 1', 'data' => 'secondary_types.name_en', 'name' => 'secondary_types.name_en', 'orderable' => false ]),
-            'project_id'=> new \Yajra\DataTables\Html\Column(['title' => 'PROJECT', 'data' => 'projects.name_en', 'name' => 'projects.name_en', 'orderable' => false ]),
-            'working_status_id'=> new \Yajra\DataTables\Html\Column(['title' => 'W Status', 'data' => 'working_statuses.name_en', 'name' => 'working_statuses.name_en', 'orderable' => false ]),
-            'photo'=> ['title' => __('datatable.assign'), 'orderable' => false, 'searchable' => false, 'style'=>'width:80px'],
+            'vehicle_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE', 'data' => 'vehicle_types.name_en', 'name' => 'vehicle_types.name_en']),
+            'secondary_type_id'=> new \Yajra\DataTables\Html\Column(['title' => 'TYPE 1', 'data' => 'secondary_types.name_en', 'name' => 'secondary_types.name_en','orderable' => false]),
+            'project_id'=> new \Yajra\DataTables\Html\Column(['title' => 'PROJECT', 'data' => 'projects.name_en', 'name' => 'projects.name_en']),
+            'working_status_id'=> new \Yajra\DataTables\Html\Column(['title' => 'Status', 'data' => 'working_statuses.name_en', 'name' => 'working_statuses.name_en']),
+            'photo'=> ['title' => __('Photos'), 'orderable' => false, 'searchable' => false, 'style'=>'width:130px'],
             'action'=> ['title' => 'Action', 'orderable' => false, 'searchable' => false],
         ];
     }

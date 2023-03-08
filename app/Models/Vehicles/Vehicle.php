@@ -2,6 +2,7 @@
 
 namespace App\Models\Vehicles;
 
+use App\Traits\HasSgcFile;
 use App\Models\Vehicles\Brand;
 use App\Models\Vehicles\Color;
 use App\Models\Vehicles\Project;
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Vehicle extends Model
 {
     use HasFactory;
+    use HasSgcFile;
+    
     protected $table = 'vehicles';
     protected $fillable = [
         'serial_no',
@@ -40,6 +43,13 @@ class Vehicle extends Model
         'meter_type_id',
         'updated_by',
         'created_by',
+    ];
+
+    protected $appends = [
+        'front_photo_url',
+        'back_photo_url',
+        'left_photo_url',
+        'right_photo_url',
     ];
 
     public function brands()

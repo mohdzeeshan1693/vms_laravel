@@ -225,33 +225,16 @@ table.table-padding thead td {
     color: #5a5278 !important;
 }
 
-/* .truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+/**********Vehicle*************/
+.veh_img{
+    width:40px;height:40px !important;
 }
 
-.text-gray-700 {
-    --tw-text-opacity: 1;
-    color: rgba(55, 65, 81, var(--tw-text-opacity));
+.wstatus_success{
+    background-color:#dceddc;
 }
 
-.pl-4, .px-4 {
-    padding-left: 1.5rem!important;
+.wstatus_other{
+    background-color:#f3f0f1;
 }
-.pr-4, .px-4 {
-    padding-right: 1.5rem!important;
-}
-.pb-2, .py-2 {
-    padding-bottom: .5rem!important;
-}
-.pt-2, .py-2 {
-    padding-top: .5rem!important;
-}
-.items-center {
-    align-items: center;
-}
-.flex {
-    display: flex;
-} */
-
+/**********Vehicle*************/
