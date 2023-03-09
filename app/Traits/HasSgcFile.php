@@ -16,13 +16,13 @@ trait HasSgcFile
     protected function defaultPhotoUrl($type)
     {
         if($type == 'front'){
-            return asset('storage/vehicle/default/front.jpg');
+            return asset('storage/vehicle/default/front.png');
         }else if($type == 'back'){
-            return asset('storage/vehicle/default/back.jpg');
+            return asset('storage/vehicle/default/back.png');
         }else if($type == 'left'){
-            return asset('storage/vehicle/default/left.jpg');
+            return asset('storage/vehicle/default/left.png');
         }else if($type == 'right'){
-            return asset('storage/vehicle/default/right.jpg');
+            return asset('storage/vehicle/default/right.png');
         }
     }
 

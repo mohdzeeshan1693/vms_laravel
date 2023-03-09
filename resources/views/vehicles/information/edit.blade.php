@@ -71,7 +71,7 @@
                             
                             <!-- information -->
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Type</label>
                                         <select class="form-control" name="type" width="100%">
@@ -85,7 +85,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Secondary Type</label>
                                         <select class="form-control" name="secondary_type" width="100%">
@@ -99,7 +99,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Serial Number</label>
                                         <input type="text" class="form-control" name="serial_no" value="{{ old('serial_no') != null ? old('serial_no') : $vehicles_details->serial_no }}">
@@ -108,7 +108,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Plate Number (English)</label>
                                         <input type="text" class="form-control" name="plate_no_en" value="{{ old('plate_no_en') != null ? old('plate_no_en') : $vehicles_details->plate_no_en }}">
@@ -117,7 +117,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Plate Number (Arabic)</label>
                                         <input type="text" class="form-control" name="plate_no_ar" value="{{ old('plate_no_ar') != null ? old('plate_no_ar') : $vehicles_details->plate_no_ar }}">
@@ -126,7 +126,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Chassis Number</label>
                                         <input type="text" class="form-control" name="chassis_no" value="{{ old('chassis_no') != null ? old('chassis_no') : $vehicles_details->chassis_number }}">
@@ -135,7 +135,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Model</label>
                                         <input type="text" class="form-control" name="model" value="{{ old('model') != null ? old('model') : $vehicles_details->model }}">
@@ -144,7 +144,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         @php
                                             $firstYear = (int)date('Y') - 20;
@@ -162,7 +162,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Brand</label>
                                         <select class="form-control" name="brand" width="100%">
@@ -176,7 +176,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Color</label>
                                         <select class="form-control" name="color" width="100%">
@@ -190,7 +190,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Meter Type</label>
                                         <select class="form-control" name="meter_type" width="100%">
@@ -205,7 +205,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Value of Equipment</label>
                                         <input type="text" class="form-control" name="value" value="{{ old('value') != null ? old('value') : $vehicles_details->value }}">
@@ -214,7 +214,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Project</label>
                                         <select class="form-control" name="project" width="100%">
@@ -228,7 +228,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Ownership</label>
                                         <select class="form-control" name="ownership" width="100%">
@@ -242,7 +242,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Owner ID Number</label>
                                         <input type="text" class="form-control" name="owner_id" value="{{ old('owner_id') != null ? old('owner_id') : $vehicles_details->owner_id_no }}">
@@ -251,7 +251,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Ownership Status</label>
                                         <select class="form-control" name="ownership_status" width="100%">
@@ -265,7 +265,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Aswaq Number</label>
                                         <input type="text" class="form-control" name="aswaq_no" value="{{ old('aswaq_no') != null ? old('aswaq_no') : $vehicles_details->aswaq_no }}">
@@ -274,7 +274,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">File Number</label>
                                         <input type="text" class="form-control" name="file_no" value="{{ old('file_no') != null ? old('file_no') : $vehicles_details->file_no }}">
@@ -283,7 +283,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">Working Status</label>
                                         <select class="form-control" name="working_status" width="100%">
@@ -313,7 +313,7 @@
 
                              <!-- Photos -->
                              <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Front') }}</label>
                                         <input type="file" class="form-control" name="front" value="{{ old('front') }}">
@@ -322,7 +322,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Back') }}</label>
                                         <input type="file" class="form-control" name="back" value="{{ old('back') }}">
@@ -331,7 +331,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Left') }}</label>
                                         <input type="file" class="form-control" name="left" value="{{ old('left') }}">
@@ -340,7 +340,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Right') }}</label>
                                         <input type="file" class="form-control" name="right" value="{{ old('right') }}">
