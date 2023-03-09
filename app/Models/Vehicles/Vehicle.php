@@ -94,6 +94,6 @@ class Vehicle extends Model
 
     public function ownership_statuses()
     {
-        return $this->belongsTo(OwnershipStatus::class, 'owner_id');
+        return $this->belongsTo(OwnershipStatus::class, 'owner_status_id');
     }
 }

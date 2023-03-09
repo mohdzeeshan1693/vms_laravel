@@ -39,7 +39,7 @@ class VehicleDataTable extends DataTable
                             <li><a href="'.$query->right_photo_url.'" target="_blank"><img class="veh_img" src="'.$query->right_photo_url.'" alt="Right" title="Right"></a></li>    
                         </ul>';
             })->addColumn('action', function($query){
-                return '<a href="'.route('vehicle.edit', $query->id).'"><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
+                return '<a href="'.route('vehicle.show', $query->id).'"><button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button></a>';
             })->rawColumns(['action','photo']);
     }
 

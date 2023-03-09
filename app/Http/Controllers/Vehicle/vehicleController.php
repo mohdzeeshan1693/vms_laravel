@@ -170,7 +170,21 @@ class vehicleController extends Controller
      */
     public function show($id)
     {
-        //
+        $vehicles_details = Vehicle::WHERE('id',$id)->with([
+            'vehicle_types',
+            'secondary_types',
+            'brands',
+            'colors',
+            'meter_types',
+            'projects',
+            'ownerships',
+            'ownership_statuses',
+            'working_statuses'
+        ])->first();
+
+        return view('vehicles.information.show')->with([
+            'vehicles_details'=>$vehicles_details
+        ]);
     }
 
     /**

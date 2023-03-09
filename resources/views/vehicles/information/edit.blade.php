@@ -354,8 +354,8 @@
                     </div>
                     
                     <div class="card-footer text-right" dir="ltr">
-                        <a href="{{ route('vehicle.index') }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> {{ __('BACK') }} </a>
-                        <button type="Submit" class="btn btn-primary" name="submit" value="update"><i class="fa fa-check"></i> {{ __('UPDATE') }} </button>
+                        <a href="{{ route('vehicle.show', $vehicles_details->id) }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> {{ __('BACK') }} </a>
+                        <button type="Submit" class="btn btn-primary" name="submit"><i class="fa fa-check"></i> {{ __('SAVE') }} </button>
                     </div>
                 </form>
             </div>            
