@@ -16,6 +16,19 @@
 
 <div class="section-body mt-3">
     <div class="container-fluid">
+
+        <!-- alert -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12">
+                @if(session('updated_success_alert'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> {{ session('updated_success_alert') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+            </div>
+        </div><!-- alert -->
+
         <div class="row clearfix">
             <!-- Information components -->
             <x-vehicle.vehicle-information :info="$vehicles_details"/>

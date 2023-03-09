@@ -59,7 +59,7 @@ class Vehicle extends Model
 
     public function vehicle_types()
     {
-        return $this->belongsTo(VehicleType::class, 'owner_status_id');
+        return $this->belongsTo(VehicleType::class, 'vehicle_type_id');
     }
 
     public function secondary_types()
