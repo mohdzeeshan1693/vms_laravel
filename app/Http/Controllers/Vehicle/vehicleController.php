@@ -20,7 +20,7 @@ use App\Models\Vehicles\OwnershipStatus;
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
 
-class vehicleController extends Controller
+class VehicleController extends Controller
 {
     /**
      * Display a listing of the resource.
