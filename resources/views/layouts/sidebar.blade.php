@@ -5,10 +5,10 @@
             <li class="g_heading">VMS Systems</li>
             <li class=""><a href=""><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
             
-            <li class="{{ Request::segment(1) == 'vehicle' ? 'active' : null }}">
+            <li class="{{ Request::segment(1) == 'vehicles' || Request::segment(1) == 'drivers' ? 'active' : null }}">
                 <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="fe fe-truck"></i><span>Vehicle Management</span></a> 
                 <ul>
-                    <li class="{{ Request::segment(1) == 'vehicle' ? 'active' : null }}"><a href="{{ route('vehicles.index') }}">Vehicles List</a></li>
+                    <li class="{{ Request::segment(1) == 'vehicles' ||  Request::segment(1) == 'drivers' ? 'active' : null }}"><a href="{{ route('vehicles.index') }}">Vehicles List</a></li>
                     <li class=""><a href="">Maintenance</a></li>
                 </ul>
             </li>

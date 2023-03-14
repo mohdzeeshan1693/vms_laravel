@@ -5,13 +5,13 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center">
              <ul class="nav nav-tabs page-header-tab">
-                <li class="nav-item"><a class="nav-link active" href="{{ route('vehicles.show', $vehicles_details->id) }}">Information</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('drivers.index') }}">Driver</a></li>
+                <li class="nav-item"><a class="nav-link active" href="">Information</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Driver</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Voilation</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Transfer</a></li>
             </ul>
             <div class="header-action">
-                <a href="{{ route('vehicles.index') }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> BACK </a>
+                <a href="{{ route('vehicle.index') }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> BACK </a>
             </div>
         </div>
     </div>
