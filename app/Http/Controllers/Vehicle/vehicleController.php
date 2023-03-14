@@ -159,7 +159,7 @@ class vehicleController extends Controller
         $vehicle->save();
 
         //redirect
-        return redirect()->route('vehicle.index')->with('added_success_alert', 'Record created successfully');
+        return redirect()->route('vehicles.index')->with('added_success_alert', 'Record created successfully');
     }
 
     /**
@@ -318,7 +318,7 @@ class vehicleController extends Controller
         $vehicle->save();
 
         //redirect
-        return redirect()->route('vehicle.show', $id)->with('updated_success_alert', 'Record updated successfully');
+        return redirect()->route('vehicles.show', $id)->with('updated_success_alert', 'Record updated successfully');
     }
 
     /**

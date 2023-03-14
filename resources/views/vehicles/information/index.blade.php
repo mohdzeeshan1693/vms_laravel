@@ -9,7 +9,7 @@
                 <li class="nav-item"><a class="nav-link" href="">&nbsp;</a></li>
             </ul>
             <div class="header-action">
-                <a href="{{ route('vehicle.create') }}"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fe fe-plus mr-2"></i> Add New Vehicle </button></a>
+                <a href="{{ route('vehicles.create') }}"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fe fe-plus mr-2"></i> Add New Vehicle </button></a>
             </div>
         </div>
     </div>

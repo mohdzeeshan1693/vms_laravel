@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12">
-                <form class="card" action="{{ route('vehicle.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="card" action="{{ route('vehicles.store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="card-body">
                         <div class="demo-masked-input">
@@ -307,7 +307,7 @@
                     </div>
 
                     <div class="card-footer text-right" dir="ltr">
-                        <a href="{{ route('vehicle.index') }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> BACK </a>
+                        <a href="{{ route('vehicles.index') }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> BACK </a>
                         <button type="Submit" class="btn btn-primary"><i class="fa fa-plus"></i> ADD </button>
                     </div>
                 </form>

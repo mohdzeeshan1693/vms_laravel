@@ -54,7 +54,7 @@
                 <div class="item-action dropdown ml-2">
                     <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" x-placement="top-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-174px, -320px, 0px);">
-                        <a href="{{ route('vehicle.edit', $info->id) }}" class="dropdown-item"><i class="dropdown-icon fa fa-pencil"></i> Edit </a>
+                        <a href="{{ route('vehicles.edit', $info->id) }}" class="dropdown-item"><i class="dropdown-icon fa fa-pencil"></i> Edit </a>
                     </div>
                 </div>
             </div>

@@ -60,7 +60,7 @@
                     </div>
                 @endif
 
-                <form class="card" action="{{ route('vehicle.update', $vehicles_details->id) }}" method="POST" enctype="multipart/form-data">
+                <form class="card" action="{{ route('vehicles.update', $vehicles_details->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     {{ csrf_field() }}
                     
@@ -354,7 +354,7 @@
                     </div>
                     
                     <div class="card-footer text-right" dir="ltr">
-                        <a href="{{ route('vehicle.show', $vehicles_details->id) }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> {{ __('BACK') }} </a>
+                        <a href="{{ route('vehicles.show', $vehicles_details->id) }}" class="btn btn-warning"><i class="fa fa-arrow-left"></i> {{ __('BACK') }} </a>
                         <button type="Submit" class="btn btn-primary" name="submit"><i class="fa fa-check"></i> {{ __('SAVE') }} </button>
                     </div>
                 </form>

@@ -25,5 +25,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('vehicle',vehicleController::class);
+    Route::resource('vehicles',vehicleController::class);
 });

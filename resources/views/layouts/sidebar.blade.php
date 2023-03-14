@@ -8,7 +8,7 @@
             <li class="{{ Request::segment(1) == 'vehicle' ? 'active' : null }}">
                 <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="fe fe-truck"></i><span>Vehicle Management</span></a> 
                 <ul>
-                    <li class="{{ Request::segment(1) == 'vehicle' ? 'active' : null }}"><a href="{{ route('vehicle.index') }}">Vehicles List</a></li>
+                    <li class="{{ Request::segment(1) == 'vehicle' ? 'active' : null }}"><a href="{{ route('vehicles.index') }}">Vehicles List</a></li>
                     <li class=""><a href="">Maintenance</a></li>
                 </ul>
             </li>
