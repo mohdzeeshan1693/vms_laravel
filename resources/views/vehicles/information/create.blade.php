@@ -269,7 +269,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Front') }}</label>
-                                        <input type="file" class="form-control" name="front" value="{{ old('front') }}">
+                                        <input type="file" class="form-control" name="front" value="{{ old('front') }}" accept="image/*">
                                         @if($errors->has('front'))
                                             <span class="text-danger">{{ $errors->first('front') }}</span>
                                         @endif
@@ -278,7 +278,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Back') }}</label>
-                                        <input type="file" class="form-control" name="back" value="{{ old('back') }}">
+                                        <input type="file" class="form-control" name="back" value="{{ old('back') }}" accept="image/*">
                                         @if($errors->has('back'))
                                             <span class="text-danger">{{ $errors->first('back') }}</span>
                                         @endif
@@ -287,7 +287,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Left') }}</label>
-                                        <input type="file" class="form-control" name="left" value="{{ old('left') }}">
+                                        <input type="file" class="form-control" name="left" value="{{ old('left') }}" accept="image/*">
                                         @if($errors->has('left'))
                                             <span class="text-danger">{{ $errors->first('left') }}</span>
                                         @endif
@@ -296,7 +296,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="form-group">
                                         <label class="form-label">{{ __('Photo - Right') }}</label>
-                                        <input type="file" class="form-control" name="right" value="{{ old('right') }}">
+                                        <input type="file" class="form-control" name="right" value="{{ old('right') }}" accept="image/*">
                                         @if($errors->has('right'))
                                             <span class="text-danger">{{ $errors->first('right') }}</span>
                                         @endif
