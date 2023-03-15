@@ -26,6 +26,10 @@ trait HasSgcFile
         }
     }
 
+    protected function defaultUserPhotoUrl()
+    {
+        return asset('storage/driver/default/default.png');
+    }
     /************* Vehicles Photos **********************************/
     public function getFrontPhotoUrlAttribute()
     {
@@ -53,6 +57,13 @@ trait HasSgcFile
         return $this->right_photo_path
                 ? Storage::disk($this->profilePhotoDisk())->url($this->right_photo_path)
                 : $this->defaultPhotoUrl('right');
+    }
+
+    public function getDriverPhotoUrlAttribute()
+    {
+        return $this->driver_photo_path
+                ? Storage::disk($this->profilePhotoDisk())->url($this->driver_photo_path)
+                : $this->defaultUserPhotoUrl();
     }
     /************* End Vehicles Photos *******************************/
 

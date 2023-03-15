@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Vehicle;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Vehicles\Driver;
+use App\DataTables\DriverDataTable;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDriverRequest;
 
 class DriverController extends Controller
 {
@@ -12,9 +17,9 @@ class DriverController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DriverDataTable $datatable)
     {
-        return view('vehicles.driver.index');
+        return $datatable->render('vehicles.driver.index');
     }
 
     /**
@@ -33,9 +38,36 @@ class DriverController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDriverRequest $request)
     {
-        //
+        $driver = new Driver();
+        $driver->file_no = $request->file_no;
+        $driver->name_en = $request->name_en;
+        $driver->name_ar = $request->name_ar;
+        $driver->license = $request->license;
+        $driver->iqama = $request->iqama;
+        $driver->notes = $request->notes;
+
+        // driver photo
+        if($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            
+            // Generate Code
+            $date = Carbon::now();
+            $code = $date->format('jny').''.Str::upper(Str::random(4));
+            
+            $random_str = $request->serial_no;
+            $extension = $file->getClientOriginalExtension(); // Get the extension
+            $file_name = $code.'_'.$random_str.'.'.Str::lower($extension);
+            $file->storeAs('public/driver',$file_name); // This is to save in the folder
+
+            $driver->driver_photo_path = 'driver/'.$file_name;
+        }
+
+        $driver->save();
+
+        //redirect
+        return redirect()->route('drivers.index')->with('added_success_alert', 'Record created successfully');
     }
 
     /**

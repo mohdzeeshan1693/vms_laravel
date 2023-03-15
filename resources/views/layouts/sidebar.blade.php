@@ -8,8 +8,9 @@
             <li class="{{ Request::segment(1) == 'vehicles' || Request::segment(1) == 'drivers' ? 'active' : null }}">
                 <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="fe fe-truck"></i><span>Vehicle Management</span></a> 
                 <ul>
-                    <li class="{{ Request::segment(1) == 'vehicles' ||  Request::segment(1) == 'drivers' ? 'active' : null }}"><a href="{{ route('vehicles.index') }}">Vehicles List</a></li>
-                    <li class=""><a href="">Maintenance</a></li>
+                    <li class="{{ Request::segment(1) == 'vehicles' ? 'active' : null }}"><a href="{{ route('vehicles.index') }}">Vehicles</a></li>
+                    <li class="{{ Request::segment(1) == 'drivers' ? 'active' : null }}"><a href="{{ route('drivers.index') }}">Drivers</a></li>
+                    {{-- <li class=""><a href="">Maintenance</a></li> --}}
                 </ul>
             </li>
         </ul>
